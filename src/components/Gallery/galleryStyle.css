@@ -1,0 +1,12 @@
+
+.image {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10px;
+    margin-bottom: 10px; 
+}
+
+.album-img {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

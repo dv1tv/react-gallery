@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import useFetch from './hooks';
+import Gallery from './components/Gallery';
+import Album from './components/Album';
+
 
 function App() {
+   const [isOpen, setOpen] = useState(false);
+   const [albumId, setAlbumId] = useState(null);
+
+   const openAlbums = (newAlbumId) => {
+     setOpen(true);
+     setAlbumId(newAlbumId);
+   }
+
+   const closeAlbums = () => {
+     setOpen(false);
+   }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Gallery /> */}
+      {/* <Album /> */}
+      {!isOpen ? <Album onOpenAlbums={openAlbums} /> : (<Gallery onCloseAlbum={closeAlbums} albumId={ albumId} />)}
+    </>
   );
 }
 
